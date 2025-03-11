@@ -4,14 +4,14 @@ public class PlayingCard {
 
     private final Suit suit;
 
-    private final int faceValue;
+    private final FaceValue faceValue;
 
-    public PlayingCard (Suit suit, int faceValue) {
+    public PlayingCard (Suit suit, FaceValue faceValue) {
         this.suit = suit;
         this.faceValue = faceValue;
     }
 
-    public int getFaceValue() {
+    public FaceValue getFaceValue() {
         return faceValue;
     }
 
