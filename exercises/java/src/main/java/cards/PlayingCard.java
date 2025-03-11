@@ -19,4 +19,8 @@ public class PlayingCard {
         return suit;
     }
 
+    @Override
+    public String toString() {
+        return faceValue + " of " + suit;
+    }
 }
