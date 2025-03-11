@@ -12,13 +12,14 @@ public class Cards {
 
     public String[] getCards() {
         String[] result = new String[52];
-        PlayingCard[] deck = new PlayingCard[52];
+        PlayingCardDeck deck = new PlayingCardDeck();
 
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
-                Suit suitTemp = new Suit(Suit.convertName(suit));
-                FaceValue faceValueTemp = new FaceValue(FaceValue.convertName(faceValue));
-                deck[suit * 13 + faceValue] = new PlayingCard(suitTemp, faceValueTemp);
+                Suit currentSuit = new Suit(Suit.convertName(suit));
+                FaceValue currentFaceValue = new FaceValue(FaceValue.convertName(faceValue));
+
+                deck.addCard(new PlayingCard(currentSuit, currentFaceValue),suit * 13 + faceValue);
             }
         }
 
