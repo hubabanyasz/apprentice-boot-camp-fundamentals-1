@@ -4,6 +4,7 @@ public class Cards {
     public static void main(String[] args) {
         Cards cards = new Cards();
         String[] deckInOrder = cards.getCards();
+
         for(String card: deckInOrder){
             System.out.println(card);
         }
@@ -15,7 +16,8 @@ public class Cards {
 
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
-                deck[suit * 13 + faceValue] = new PlayingCard(suit, faceValue);
+                Suit suitTemp = new Suit(Suit.convertName(suit));
+                deck[suit * 13 + faceValue] = new PlayingCard(suitTemp, faceValue);
             }
         }
 
@@ -39,16 +41,7 @@ public class Cards {
                 default: throw new IllegalArgumentException("Something went wrong " + card.getFaceValue() + "is not a valid faceValue!");
             }
 
-            String suitName;
-            switch (card.getSuit()){
-                case 0: suitName = "clubs"; break;
-                case 1: suitName = "diamonds"; break;
-                case 2: suitName = "hearts"; break;
-                case 3: suitName = "spades"; break;
-                default: throw new IllegalArgumentException("Something went wrong " + card.getSuit() + "is not a valid suitName!");
-            }
-
-            result[cardNumber] = faceValueName + " of " + suitName;
+            result[cardNumber] = faceValueName + " of " + card.getSuit().getName();
             cardNumber++;
         }
 
