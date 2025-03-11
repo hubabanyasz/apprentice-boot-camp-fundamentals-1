@@ -16,7 +16,7 @@ public class Cards {
 
         int cardNumber = 0;
         for (PlayingCard card : deck) {
-            result[cardNumber] = card.getFaceValue().getFaceValueName() + " of " + card.getSuit().getName();
+            result[cardNumber] = card.getFaceValue().getName() + " of " + card.getSuit().getName();
             cardNumber++;
         }
 

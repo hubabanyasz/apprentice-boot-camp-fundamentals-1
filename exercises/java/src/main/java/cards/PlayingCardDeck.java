@@ -8,10 +8,8 @@ public class PlayingCardDeck implements Iterable<PlayingCard> {
 
     PlayingCardDeck () {
         int cardNumber = 0;
-        for (int suitId = 0; suitId < 4; suitId++) {
-            Suit suit = new Suit(Suit.convertName(suitId));
-            for (int faceValueId = 0; faceValueId < 13; faceValueId++) {
-                FaceValue faceValue = new FaceValue(FaceValue.convertName(faceValueId));
+        for (Suit suit : Suit.values()) {
+            for (FaceValue faceValue : FaceValue.values()) {
                 deck[cardNumber] = new PlayingCard(suit, faceValue);
                 cardNumber++;
             }

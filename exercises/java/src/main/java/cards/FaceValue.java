@@ -1,33 +1,29 @@
 package cards;
 
-public class FaceValue {
+public enum FaceValue {
 
-    private final String faceValueName;
+    ACE("ace"),
+    TWO("2"),
+    THREE("3"),
+    FOUR("4"),
+    FIVE("5"),
+    SIX("6"),
+    SEVEN("7"),
+    EIGHT("8"),
+    NINE("9"),
+    TEN("10"),
+    JACK("jack"),
+    QUEEN("queen"),
+    KING("king");
 
-    public FaceValue(String faceValueName) {
-        this.faceValueName = faceValueName;
+
+    private final String name;
+
+    FaceValue(String name) {
+        this.name = name;
     }
 
-    public String getFaceValueName() {
-        return faceValueName;
-    }
-
-    public static String convertName(int faceValue) {
-        switch (faceValue){
-            case  0: return "ace";
-            case  1:
-            case  2:
-            case  3:
-            case  4:
-            case  5:
-            case  6:
-            case  7:
-            case  8:
-            case  9: return Integer.toString(faceValue + 1);
-            case 10: return "jack";
-            case 11: return "queen";
-            case 12: return "king";
-            default: throw new IllegalArgumentException("Something went wrong " + faceValue + "is not a valid faceValue!");
-        }
+    public String getName() {
+        return name;
     }
 }
