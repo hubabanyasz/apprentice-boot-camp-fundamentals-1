@@ -1,32 +1,49 @@
 package cards;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
-public class PlayingCardDeck implements Iterable<PlayingCard> {
+public class PlayingCardDeck implements Iterable<PlayingCard>, CardDeck {
 
-    private PlayingCard[] deck = new PlayingCard[52];
+    private final List<PlayingCard> cards = new ArrayList<>();
 
-    PlayingCardDeck () {
-        int cardNumber = 0;
+    PlayingCardDeck() {
         for (Suit suit : Suit.values()) {
             for (FaceValue faceValue : FaceValue.values()) {
-                deck[cardNumber] = new PlayingCard(suit, faceValue);
-                cardNumber++;
+                cards.add(new PlayingCard(suit, faceValue));
             }
         }
     }
 
-    public void addCard(PlayingCard card, int index) {
-        deck[index] = card;
-    }
-
     public PlayingCard[] getDeck() {
-        return deck;
+        return cards.toArray(new PlayingCard[52]);
     }
 
     @Override
     public Iterator<PlayingCard> iterator() {
-        return new PlayingCardIterator(deck);
+        return new PlayingCardIterator(cards.toArray(new PlayingCard[52]));
+    }
+
+    @Override
+    public void shuffle() {
+        Collections.shuffle(cards);
+    }
+
+    @Override
+    public String[] getCards() {
+        String[] result = new String[cards.size()];
+        for (int i = 0; i < cards.size(); i++) {
+            PlayingCard card = cards.get(i);
+            result[i] = card.toString();
+        }
+        return result;
+    }
+
+    @Override
+    public Card deal() {
+        return cards.remove(0);
     }
 
     private static class PlayingCardIterator implements Iterator<PlayingCard> {

@@ -7,7 +7,7 @@ public class Cards {
         Cards cards = new Cards();
         String[] deckInOrder = cards.getCards();
 
-        for(String card: deckInOrder){
+        for (String card : deckInOrder) {
             System.out.println(card);
         }
     }
