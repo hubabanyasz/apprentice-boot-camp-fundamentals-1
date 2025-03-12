@@ -1,7 +1,7 @@
 package cards;
 
-public interface Card {
+public abstract class Card {
 
-    boolean snap(Card otherCard);
+    abstract boolean snap(Card otherCard);
 
 }

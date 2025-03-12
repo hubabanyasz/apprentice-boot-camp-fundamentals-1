@@ -1,11 +1,28 @@
 package cards;
 
-public interface CardDeck {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-    void shuffle();
+public abstract class CardDeck {
 
-    String[] getCards();
+    protected List<Card> cards = new ArrayList<>();
 
-    Card deal();
+    void shuffle() {
+        Collections.shuffle(cards);
+    }
+
+    String[] getCards() {
+        String[] result = new String[cards.size()];
+        for (int i = 0; i < cards.size(); i++) {
+            Card card = cards.get(i);
+            result[i] = card.toString();
+        }
+        return result;
+    }
+
+    Card deal() {
+        return cards.remove(0);
+    }
 
 }
