@@ -5,9 +5,9 @@ import java.util.Scanner;
 class Snap {
     private int player1Score;
     private int player2Score;
-    private AnimalDeck deck;
+    private final CardDeck deck;
 
-    Snap(AnimalDeck deck) {
+    Snap(CardDeck deck) {
         this.deck = deck;
         deck.shuffle();
     }
